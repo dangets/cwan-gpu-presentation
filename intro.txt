@@ -1,0 +1,16 @@
+GPU programming is a technique typically used to speed up computations by
+taking advantage of the highly parallel architecture available on graphics
+cards. There will be many live code demos, mostly in C++/CUDA, but should be
+understandable by all.
+
+
+
+
+
+Title: Intro to General Purpose GPU programming
+
+Summary:
+Within the last few years graphics cards have become very popular within high
+performance computing circles.  This presentation will give an introduction to
+GPGPU programming along with code examples, as well as a discussion of which
+problem domains would likely see benefit from using it.

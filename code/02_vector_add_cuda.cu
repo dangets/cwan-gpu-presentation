@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     // ---- DECLARE VARIABLES -----------------------
     int *host_a, *host_b, *host_r;
-    int *dev_a, *dev_b, *dev_c;
+    int *dev_a, *dev_b, *dev_r;
 
     // ---- ALLOCATE MEMORY ON HOST -----------------
     host_a = (int *)malloc(num_bytes);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     // cudaMalloc(void **dev_ptr, size_t count)
     cudaMalloc(&dev_a, num_bytes);
     cudaMalloc(&dev_b, num_bytes);
-    cudaMalloc(&dev_c, num_bytes);
+    cudaMalloc(&dev_r, num_bytes);
 
     // ---- COPY DATA OVER TO DEVICE ----------------
     // cudaMemcpy(void *dst, const void *src, size_t count, cudaMemcpyKind kind)

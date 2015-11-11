@@ -1,0 +1,90 @@
+45 Minutes total
+
+
+Overview (15 minutes)
+========================
+What GPGPU programming is
+    - how it started (shaders hijacked for general computation)
+
+GPU architecture basics
+    Diff between CPU and GPU:
+        CPU - few cores/ALUs, low latency
+        GPU - many cores/ALUs (lower clockspeed), high throughput
+            - SIMT (bascially SIMD, except execution is not lockstep)
+        Clock speeds
+
+How is it used
+    - CUDA      (Nvidia proprietary)
+    - OpenCL    (AMD, Nvidia, Intel)
+
+
+What it's used for, what I've done
+-----------------------------------
+*Data Parallel* Number crunching!
+Machine learning (matrix computations)
+Bitcoin mining
+Scientific computing (physics computations)
+OpenGL interop (data visualization)
+
+*GPU Memory:
+*    Global Memory (large bank accessible by GPU & CPU)
+*    Shared Memory (shared among thread block, similar to L3 cache)
+*    Texture Memory (2D and 3D cache locality)
+        (think matrix ops)
+
+Very good at integer ops
+Very good at floating point, double prec based on architecture
+
+
+
+Example Code (25 min)
+===================
+General program flow
+    - have to make up for transfer time
+C vs CUDA
+C++ vs Thrust
+
+
+
+Application to Clearwater SOAPBOX (5 min)
+============================
+There are language libraries for Python, Java, etc...
+Why do we use Java? - We don't have to worry about memory layout
+My experience with GPGPU is 99% C++
+
+Emphasize importance of memory layout
+    Latencies from http://www.eecs.berkeley.edu/~rcs/research/interactive_latency.html and liberally fudged.
+    Cache sizes from Xeon E5-2643 spec
+        L1 cache hit   <1ns     (256KB)
+        L2 cache hit   ~4ns     (1MB)
+        L3 cache hit  ~24ns     (10MB)
+        Main Memory  ~100ns     (big enough)
+
+    Between L2 & MainMem, 25x difference
+
+ETL data loading patterns
+    load data from database
+    process data
+    write data
+
+imHo - There would be a much bigger benefit by going to C++ than by trying to integrate GPU code into Java code.
+*disclaimer* I have *very* little experience with combining C++ and Java code.
+*disclaimer* I have no experience combining Java and GPU code.
+
+Libraries - research papers
+    JCUDA
+    PyCUDA
+    CUBLAS
+    CUFFT
+    OpenACC (like OpenMP)
+
+
+Other Resources
+------------
+Nvidia Fermi architecture overview - http://www.cc.gatech.edu/~vetter/keeneland/tutorial-2011-04-14/02-cuda-overview.pdf
+
+From Java Code to Java Heap - https://www.youtube.com/watch?v=FLcXf9pO27w
+Why you should avoid linked lists - https://www.youtube.com/watch?v=YQs6IC-vgmo
+Modern C++: What you need to know - https://channel9.msdn.com/Events/Build/2014/2-661 (especially >24:00)
+Machine Architecture: Things Your Programming Language Never Told You - https://www.youtube.com/watch?v=L7zSU9HI-6I
+Stack Overflow - What is cache friendly code? - http://stackoverflow.com/questions/16699247/what-is-cache-friendly-code
