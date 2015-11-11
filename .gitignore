@@ -1,0 +1,6 @@
+nb-configuration.xml
+nbactions.xml
+
+*.sw[po]
+
+target/
