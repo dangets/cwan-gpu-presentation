@@ -2,6 +2,7 @@
 #define UTILS_HPP_CLUVP3EQ
 
 #include <iostream>
+#include <vector>
 
 template<typename T>
 void print_vector(const std::vector<T> & vec) {
